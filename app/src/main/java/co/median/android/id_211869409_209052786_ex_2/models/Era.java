@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 public class Era {
     private String name;
-    private int imageResId; // מזהה של התמונה (למשל: R.drawable.renaissance)
+    private int imageResId; 
 
     public Era(String name, int imageResId) {
         this.name = name;

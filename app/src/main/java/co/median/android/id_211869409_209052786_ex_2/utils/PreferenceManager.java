@@ -15,7 +15,7 @@ public class PreferenceManager {
     private static final String KEY_DATE = "selected_date";
     private static final String KEY_TIME = "selected_time";
     private static final String KEY_ERA_NAME = "selected_era_name";
-    private static final String KEY_ACTIVITY_IDS = "selected_activity_ids"; // New
+    private static final String KEY_ACTIVITY_IDS = "selected_activity_ids"; 
 
     private final SharedPreferences sharedPreferences;
 
@@ -39,7 +39,7 @@ public class PreferenceManager {
         return sharedPreferences.getString(KEY_TIME, null);
     }
 
-    // --- New methods for Era ---
+    
     public void saveSelectedEraName(String eraName) {
         sharedPreferences.edit().putString(KEY_ERA_NAME, eraName).apply();
     }
@@ -48,13 +48,13 @@ public class PreferenceManager {
         return sharedPreferences.getString(KEY_ERA_NAME, null);
     }
 
-    // --- New methods for Activities ---
+    
     public void saveSelectedActivities(List<Activity> activities) {
         if (activities == null || activities.isEmpty()) {
             sharedPreferences.edit().remove(KEY_ACTIVITY_IDS).apply();
             return;
         }
-        // Convert list of activity IDs to a single comma-separated string
+        
         String idsString = activities.stream()
                 .map(activity -> String.valueOf(activity.getId()))
                 .collect(Collectors.joining(","));
@@ -66,7 +66,7 @@ public class PreferenceManager {
         if (idsString == null || idsString.isEmpty()) {
             return new ArrayList<>();
         }
-        // Convert the comma-separated string back to a list of ID strings
+        
         return Arrays.asList(idsString.split(","));
     }
 
@@ -77,7 +77,7 @@ public class PreferenceManager {
             sb.append(id).append(",");
         }
         if (sb.length() > 0) {
-            sb.setLength(sb.length() - 1); // הסרת פסיק אחרון
+            sb.setLength(sb.length() - 1); 
         }
         editor.putString("priority_activity_ids", sb.toString());
         editor.apply();

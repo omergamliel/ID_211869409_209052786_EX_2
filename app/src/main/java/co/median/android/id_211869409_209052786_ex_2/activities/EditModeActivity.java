@@ -11,15 +11,11 @@ import co.median.android.id_211869409_209052786_ex_2.R;
 import co.median.android.id_211869409_209052786_ex_2.fragments.ActivitiesManageFragment;
 import co.median.android.id_211869409_209052786_ex_2.fragments.SummriesManageFragment;
 
-/**
- * Activity responsible for edit mode operations. The user can manage historical
- * activities or view and clear saved summaries. Two buttons allow switching
- * between the relevant fragments.
- */
+
 public class EditModeActivity extends AppCompatActivity {
 
-    private Button normalModeButton; // manages activities
-    private Button editModeButton;   // manages summaries
+    private Button normalModeButton; 
+    private Button editModeButton;   
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

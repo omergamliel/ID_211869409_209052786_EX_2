@@ -68,11 +68,11 @@ public class SummaryFragment extends Fragment {
 
         Travel travel = ((NormalModeActivity) getActivity()).getCurrentTravel();
 
-        // השלם את ה־Travel מה-SharedPreferences (תאריך ושעה)
+        
         travel.setSelectedDate(preferenceManager.getSelectedDate());
         travel.setSelectedTime(preferenceManager.getSelectedTime());
 
-        // בדיקה בסיסית
+        
         if (travel.getSelectedDate() == null || travel.getSelectedTime() == null || travel.getSelectedEra() == null) {
             Toast.makeText(getContext(), "שגיאה: חסר מידע על המסע.", Toast.LENGTH_LONG).show();
             if (getActivity() != null) {
@@ -81,7 +81,7 @@ public class SummaryFragment extends Fragment {
             return;
         }
 
-        // הצגה במסך
+        
         dateTextView.setText("תאריך: " + travel.getSelectedDate());
         timeTextView.setText("שעה: " + travel.getSelectedTime());
         eraTextView.setText("תקופה: " + travel.getSelectedEra());
@@ -103,7 +103,7 @@ public class SummaryFragment extends Fragment {
             Toast.makeText(getContext(), "שגיאה בשמירת המסע.", Toast.LENGTH_SHORT).show();
         }
 
-        // הכנת טקסט לשיתוף
+        
         prepareShareText(travel, activitiesJoiner.toString());
     }
 

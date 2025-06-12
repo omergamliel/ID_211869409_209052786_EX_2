@@ -34,13 +34,13 @@ public class ConfirmationDialogFragment extends DialogFragment {
         builder.setTitle("אישור פרטי המסע")
                 .setMessage(summaryMessage)
                 .setPositiveButton("אשר וצא למסע", (dialog, id) -> {
-                    // Send a positive result back to the calling fragment
+                    
                     Bundle result = new Bundle();
                     result.putBoolean(KEY_RESPONSE, true);
                     getParentFragmentManager().setFragmentResult(REQUEST_KEY, result);
                 })
                 .setNegativeButton("ביטול", (dialog, id) -> {
-                    // The dialog is simply dismissed, no result sent.
+                    
                 });
 
         return builder.create();

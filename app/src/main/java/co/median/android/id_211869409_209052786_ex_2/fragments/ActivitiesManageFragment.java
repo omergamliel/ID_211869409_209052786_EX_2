@@ -21,10 +21,7 @@ import co.median.android.id_211869409_209052786_ex_2.adapters.ManageActivitiesAd
 import co.median.android.id_211869409_209052786_ex_2.database.DatabaseHelper;
 import co.median.android.id_211869409_209052786_ex_2.models.Activity;
 
-/**
- * Fragment for managing historical activities. Allows adding new records,
- * updating and deleting existing ones.
- */
+
 public class ActivitiesManageFragment extends Fragment implements ManageActivitiesAdapter.OnActivityActionListener {
 
     private RecyclerView recyclerView;
