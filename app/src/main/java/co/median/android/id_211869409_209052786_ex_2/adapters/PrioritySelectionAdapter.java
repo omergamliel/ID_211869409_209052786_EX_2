@@ -37,7 +37,7 @@ public class PrioritySelectionAdapter extends RecyclerView.Adapter<PrioritySelec
         Activity activity = activities.get(position);
         holder.titleTextView.setText(activity.getTitle());
 
-        holder.checkBox.setOnCheckedChangeListener(null); // מניעת Trigger מיותר
+        holder.checkBox.setOnCheckedChangeListener(null); 
         holder.checkBox.setChecked(selectedActivities.contains(activity));
 
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {

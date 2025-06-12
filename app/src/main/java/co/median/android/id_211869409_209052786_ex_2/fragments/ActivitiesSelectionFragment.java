@@ -100,7 +100,7 @@ public class ActivitiesSelectionFragment extends Fragment {
 
                                 if (getActivity() instanceof NormalModeActivity) {
                                     NormalModeActivity activity = (NormalModeActivity) getActivity();
-                                    activity.getCurrentTravel().setSelectedActivities(selected); // ✅ פתרון
+                                    activity.getCurrentTravel().setSelectedActivities(selected); 
                                     activity.navigateToEraSelection();
                                 }
                             }
@@ -110,7 +110,7 @@ public class ActivitiesSelectionFragment extends Fragment {
 
                 if (getActivity() instanceof NormalModeActivity) {
                     NormalModeActivity activity = (NormalModeActivity) getActivity();
-                    activity.getCurrentTravel().setSelectedActivities(selected); // ✅ גם כאן
+                    activity.getCurrentTravel().setSelectedActivities(selected); 
                     activity.navigateToEraSelection();
                 }
             }

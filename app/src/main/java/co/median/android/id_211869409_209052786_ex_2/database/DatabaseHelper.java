@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "Creating database...");
 
-        // טבלת פעילויות היסטוריות
+        
         db.execSQL("CREATE TABLE activities (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "title TEXT NOT NULL, " +
@@ -36,14 +36,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "date TEXT" +
                 ");");
 
-        // טבלת תקופות זמן
+        
         db.execSQL("CREATE TABLE eras (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT NOT NULL, " +
                 "image_name TEXT NOT NULL" +
                 ");");
 
-        // טבלת סיכומים
+        
         db.execSQL("CREATE TABLE summaries (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "selected_date TEXT NOT NULL, " +
@@ -97,7 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // פעילויות
+    
     public Cursor getAllActivities() {
         return getReadableDatabase().rawQuery("SELECT * FROM activities", null);
     }
@@ -122,12 +122,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         getWritableDatabase().delete("activities", "id = ?", new String[]{String.valueOf(id)});
     }
 
-    // תקופות
+    
     public Cursor getAllEras() {
         return getReadableDatabase().rawQuery("SELECT * FROM eras", null);
     }
 
-    // סיכומים
+    
     public long insertTravel(Travel travel) {
         if (travel == null) return -1;
 
@@ -136,7 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("selected_time", travel.getSelectedTime());
         values.put("selected_era", travel.getSelectedEra());
 
-        // הפוך את רשימת הפעילויות למחרוזת מזהים מופרדת בפסיקים
+        
         StringJoiner joiner = new StringJoiner(", ");
         for (Activity activity : travel.getSelectedActivities()) {
             joiner.add(String.valueOf(activity.getId()));
@@ -152,7 +152,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<Travel> summaryList = new ArrayList<>();
         SQLiteDatabase database = this.getReadableDatabase();
 
-        String query = "SELECT * FROM summaries"; // השם של הטבלה שלך
+        String query = "SELECT * FROM summaries"; 
         Cursor cursor = database.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
@@ -161,7 +161,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String date = cursor.getString(cursor.getColumnIndexOrThrow("selected_date"));
                 String time = cursor.getString(cursor.getColumnIndexOrThrow("selected_time"));
                 String era = cursor.getString(cursor.getColumnIndexOrThrow("selected_era"));
-                String activitiesText = cursor.getString(cursor.getColumnIndexOrThrow("activities")); // לדוג' "1,2,3"
+                String activitiesText = cursor.getString(cursor.getColumnIndexOrThrow("activities")); 
                 Travel travel = new Travel(date, time, era, new ArrayList<>());
 
                 summaryList.add(travel);

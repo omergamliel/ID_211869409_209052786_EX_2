@@ -28,7 +28,7 @@ public class SummriesManageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_summrie_manage, container, false); // ודא שהקובץ נקרא כך
+        return inflater.inflate(R.layout.fragment_summrie_manage, container, false); 
     }
 
     @Override
@@ -37,7 +37,7 @@ public class SummriesManageFragment extends Fragment {
 
         dbHelper = new DatabaseHelper(requireContext());
 
-        summariesContainer = view.findViewById(R.id.summaries_container); // נוסיף אותו ב-XML מיד
+        summariesContainer = view.findViewById(R.id.summaries_container); 
         deleteButton = view.findViewById(R.id.delete_summries_button);
 
         loadSummaries();
@@ -75,7 +75,7 @@ public class SummriesManageFragment extends Fragment {
                 for (co.median.android.id_211869409_209052786_ex_2.models.Activity act : travel.getSelectedActivities()) {
                     sb.append(act.getTitle()).append(", ");
                 }
-                sb.setLength(sb.length() - 2); // הסר פסיק אחרון
+                sb.setLength(sb.length() - 2); 
             } else {
                 sb.append("אין");
             }

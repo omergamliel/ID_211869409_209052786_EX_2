@@ -49,23 +49,23 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
         setupNextButton();
         setupFragmentResultListener();
 
-        nextButton.setEnabled(false); // הכפתור יופעל רק אחרי בחירה
+        nextButton.setEnabled(false); 
     }
 
     @Override
     public void onEraSelected(Era era) {
         this.selectedEra = era;
 
-        // 1. שמור את התקופה ב־SharedPreferences (כנדרש במטלה)
+        
         preferenceManager.saveSelectedEraName(era.getName());
 
-        // 2. עדכן את Travel באקטיביטי עם שם התקופה
+        
         if (getActivity() instanceof NormalModeActivity) {
             NormalModeActivity activity = (NormalModeActivity) getActivity();
             activity.getCurrentTravel().setSelectedEra(era.getName());
         }
 
-        // 3. הפעל כפתור "הבא"
+        
         nextButton.setEnabled(true);
     }
 
@@ -83,7 +83,7 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
                 ConfirmationDialogFragment.REQUEST_KEY, this, (requestKey, bundle) -> {
                     boolean userConfirmed = bundle.getBoolean(ConfirmationDialogFragment.KEY_RESPONSE);
                     if (userConfirmed) {
-                        // ניווט למסך הסיכום
+                        
                         if (getActivity() instanceof NormalModeActivity) {
                             ((NormalModeActivity) getActivity()).navigateToSummary();
                         }
@@ -103,7 +103,7 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
 
                         int imageResId = getResources().getIdentifier(imageName, "drawable", requireContext().getPackageName());
                         if (imageResId == 0) {
-                            imageResId = R.drawable.logo; // fallback
+                            imageResId = R.drawable.logo; 
                         }
 
                         list.add(new Era(name, imageResId));
@@ -119,7 +119,7 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
     private void showConfirmationDialog() {
         if (selectedEra == null) return;
 
-        // שלוף את הנתונים מ־SharedPreferences לצורך סיכום
+        
         String date = preferenceManager.getSelectedDate();
         String time = preferenceManager.getSelectedTime();
         String eraName = preferenceManager.getSelectedEraName();

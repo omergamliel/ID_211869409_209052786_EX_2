@@ -63,16 +63,16 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder> {
             eraImageView.setImageResource(era.getImageResId());
 
             if (selectedPosition == position) {
-                cardView.setCardBackgroundColor(Color.parseColor("#B2DFDB")); // Teal Light
+                cardView.setCardBackgroundColor(Color.parseColor("#B2DFDB")); 
             } else {
                 cardView.setCardBackgroundColor(Color.WHITE);
             }
 
             itemView.setOnClickListener(v -> {
                 if (selectedPosition != getAdapterPosition()) {
-                    notifyItemChanged(selectedPosition); // Unselect old
+                    notifyItemChanged(selectedPosition); 
                     selectedPosition = getAdapterPosition();
-                    notifyItemChanged(selectedPosition); // Select new
+                    notifyItemChanged(selectedPosition); 
                     listener.onEraSelected(era);
                 }
             });

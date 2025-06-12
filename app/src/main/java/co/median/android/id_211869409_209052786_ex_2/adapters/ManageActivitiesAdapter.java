@@ -14,10 +14,7 @@ import java.util.List;
 import co.median.android.id_211869409_209052786_ex_2.R;
 import co.median.android.id_211869409_209052786_ex_2.models.Activity;
 
-/**
- * Adapter used in edit mode for displaying historical activities with update
- * and delete options.
- */
+
 public class ManageActivitiesAdapter extends RecyclerView.Adapter<ManageActivitiesAdapter.ViewHolder> {
 
     public interface OnActivityActionListener {

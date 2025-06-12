@@ -21,9 +21,7 @@ import co.median.android.id_211869409_209052786_ex_2.R;
 import co.median.android.id_211869409_209052786_ex_2.database.DatabaseHelper;
 import co.median.android.id_211869409_209052786_ex_2.models.Activity;
 
-/**
- * DialogFragment used for adding or updating an historical activity.
- */
+
 public class ManageActivityDialogFragment extends DialogFragment {
 
     private static final String ARG_ACTIVITY = "activity";
