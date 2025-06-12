@@ -1,3 +1,7 @@
+// Students Name: Omer Gamliel | ID: 209052786
+// Students Name: Batel Gofleyzer | ID: 211869409
+// Course Name: 62187 Application Development for Smart Devices
+
 package co.median.android.id_211869409_209052786_ex_2.adapters;
 
 // Adapter להצגת פעילויות במצב עריכה עם אפשרויות עדכון ומחיקה.
