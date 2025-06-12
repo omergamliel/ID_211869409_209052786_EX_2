@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    tools:context=".fragments.DateTimePickerFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שלב 1: בחירת תאריך ושעה למסע"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:id="@+id/selected_date_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="תאריך המסע: (טרם נבחר)"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/select_date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="בחר תאריך"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/selected_time_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שעת המסע: (טרם נבחרה)"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/select_time_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="בחר שעה" />
+
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="המשך"
+        android:enabled="false"/>
+
+</LinearLayout>

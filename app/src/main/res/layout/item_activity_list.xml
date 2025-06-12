@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/activity_title_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="הכרזת העצמאות של מדינת ישראל" />
+
+        <TextView
+            android:id="@+id/activity_description_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_title_textview"
+            tools:text="תיאור קצר של האירוע ההיסטורי החשוב והמרגש שהתרחש בתל אביב." />
+
+        <TextView
+            android:id="@+id/activity_date_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="?android:attr/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_description_textview"
+            tools:text="14/05/1948" />
+
+        <Button
+            android:id="@+id/delete_activity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="עדכון"
+            android:layout_marginTop="3dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_date_textview"/>
+
+        <Button
+            android:id="@+id/update_activity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="מחיקה"
+            android:layout_marginTop="3dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/delete_activity_button"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

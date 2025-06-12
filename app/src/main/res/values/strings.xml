@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ID_211869409_209052786_EX_2</string>
+    <string name="normal">מצב רגיל</string>
+    <string name="edit">מצב עריכה</string>
+    <string name="summries">רשימת הסיכומים</string>
+    <string name="summries_title">רשימת הסיכומים</string>
+    <string name="manage_Activities">ניהול פעילויות</string>
+</resources>
