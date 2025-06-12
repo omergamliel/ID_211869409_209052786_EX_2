@@ -16,6 +16,7 @@ import co.median.android.id_211869409_209052786_ex_2.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button normalModeButton;
+    private Button editModeButton;
 
 
     @Override
@@ -25,12 +26,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         normalModeButton = findViewById(R.id.normalModeButton);
+        editModeButton = findViewById(R.id.editModeButton);
 
         normalModeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to start NormalModeActivity
                 Intent intent = new Intent(MainActivity.this, NormalModeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        editModeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditModeActivity.class);
                 startActivity(intent);
             }
         });

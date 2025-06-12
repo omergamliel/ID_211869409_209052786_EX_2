@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/input_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="כותרת" />
+
+    <EditText
+        android:id="@+id/input_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="תיאור"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/selected_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="בחר תאריך"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/pick_date_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="בחירת תאריך"
+        android:layout_marginTop="4dp" />
+
+    <Button
+        android:id="@+id/save_activity_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="שמירה"
+        android:layout_marginTop="12dp" />
+</LinearLayout>

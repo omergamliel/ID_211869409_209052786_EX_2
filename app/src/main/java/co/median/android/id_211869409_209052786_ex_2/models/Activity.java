@@ -1,7 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.models;
 import java.io.Serializable;
 
-public class Activity {
+public class Activity implements Serializable {
     private int id;
     private String title;
     private String description;
