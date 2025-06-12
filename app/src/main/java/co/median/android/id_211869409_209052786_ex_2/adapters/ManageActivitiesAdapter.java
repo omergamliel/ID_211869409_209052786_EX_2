@@ -63,8 +63,8 @@ public class ManageActivitiesAdapter extends RecyclerView.Adapter<ManageActiviti
             titleTextView = itemView.findViewById(R.id.activity_title_textview);
             descriptionTextView = itemView.findViewById(R.id.activity_description_textview);
             dateTextView = itemView.findViewById(R.id.activity_date_textview);
-            deleteButton = itemView.findViewById(R.id.update_activity_button);
-            updateButton = itemView.findViewById(R.id.delete_activity_button);
+            deleteButton = itemView.findViewById(R.id.delete_activity_button);
+            updateButton = itemView.findViewById(R.id.update_activity_button);
         }
 
         void bind(Activity activity) {

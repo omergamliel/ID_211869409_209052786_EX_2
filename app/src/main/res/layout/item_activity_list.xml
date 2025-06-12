@@ -12,16 +12,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layoutDirection="rtl">
 
         <TextView
             android:id="@+id/activity_title_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="הכרזת העצמאות של מדינת ישראל" />
 
@@ -32,7 +34,7 @@
             android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:maxLines="2"
-            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_title_textview"
             tools:text="תיאור קצר של האירוע ההיסטורי החשוב והמרגש שהתרחש בתל אביב." />
@@ -43,35 +45,33 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="?android:attr/textColorSecondary"
-            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_description_textview"
             tools:text="14/05/1948" />
 
         <Button
-            android:id="@+id/delete_activity_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="עדכון"
-            android:layout_marginTop="3dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_date_textview"/>
-
-        <Button
             android:id="@+id/update_activity_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="מחיקה"
-            android:layout_marginTop="3dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
+            android:layout_marginTop="12dp"
+            android:text="עדכון פעילות"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#4CAF50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/delete_activity_button"/>
+            app:layout_constraintTop_toBottomOf="@+id/activity_date_textview" />
 
-
-
+        <Button
+            android:id="@+id/delete_activity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="מחיקת פעילות"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#F44336"
+            app:layout_constraintStart_toEndOf="@+id/update_activity_button"
+            app:layout_constraintTop_toTopOf="@+id/update_activity_button"
+            app:layout_constraintBottom_toBottomOf="@+id/update_activity_button"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

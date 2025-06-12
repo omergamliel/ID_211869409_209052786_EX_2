@@ -44,7 +44,7 @@ public class SummriesManageFragment extends Fragment {
 
         deleteButton.setOnClickListener(v -> {
             dbHelper.deleteAllSummaries();
-            Toast.makeText(requireContext(), "כל הסיכומים נמחקו", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "מחיקת כל הסיכומים בוצעה", Toast.LENGTH_SHORT).show();
             loadSummaries();
         });
     }
