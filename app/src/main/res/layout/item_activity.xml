@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
@@ -23,31 +22,25 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/activity_checkbox"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="הכרזת העצמאות של מדינת ישראל" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/activity_description_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="2"
             app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_title_textview"
-            tools:text="תיאור קצר של האירוע ההיסטורי החשוב והמרגש שהתרחש בתל אביב." />
+            app:layout_constraintTop_toBottomOf="@+id/activity_title_textview" />
 
         <TextView
             android:id="@+id/activity_date_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintEnd_toEndOf="@+id/activity_title_textview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_description_textview"
-            tools:text="14/05/1948" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_description_textview" />
 
         <CheckBox
             android:id="@+id/activity_checkbox"
