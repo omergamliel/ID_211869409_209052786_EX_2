@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.utils;
 
+// מחלקה זו מנהלת את ההעדפות המקומיות של המשתמש ושומרת את בחירותיו השונות.
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -19,36 +21,44 @@ public class PreferenceManager {
 
     private final SharedPreferences sharedPreferences;
 
+    // בנאי שמאתחל את מחלקת ההעדפות בעזרת הקונטקסט של האפליקציה
     public PreferenceManager(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
     }
 
+    // שמירת התאריך שנבחר
     public void saveSelectedDate(String date) {
         sharedPreferences.edit().putString(KEY_DATE, date).apply();
     }
 
+    // קבלת התאריך השמור
     public String getSelectedDate() {
         return sharedPreferences.getString(KEY_DATE, null);
     }
 
+    // שמירת השעה שנבחרה
     public void saveSelectedTime(String time) {
         sharedPreferences.edit().putString(KEY_TIME, time).apply();
     }
 
+    // קבלת השעה השמורה
     public String getSelectedTime() {
         return sharedPreferences.getString(KEY_TIME, null);
     }
 
     
+    // שמירת שם התקופה שנבחרה
     public void saveSelectedEraName(String eraName) {
         sharedPreferences.edit().putString(KEY_ERA_NAME, eraName).apply();
     }
 
+    // קבלת שם התקופה השמור
     public String getSelectedEraName() {
         return sharedPreferences.getString(KEY_ERA_NAME, null);
     }
 
     
+    // שמירת מזהי הפעילויות שנבחרו
     public void saveSelectedActivities(List<Activity> activities) {
         if (activities == null || activities.isEmpty()) {
             sharedPreferences.edit().remove(KEY_ACTIVITY_IDS).apply();
@@ -61,6 +71,7 @@ public class PreferenceManager {
         sharedPreferences.edit().putString(KEY_ACTIVITY_IDS, idsString).apply();
     }
 
+    // קבלת רשימת מזהי הפעילויות השמורות
     public List<String> getSelectedActivityIds() {
         String idsString = sharedPreferences.getString(KEY_ACTIVITY_IDS, null);
         if (idsString == null || idsString.isEmpty()) {
@@ -70,6 +81,7 @@ public class PreferenceManager {
         return Arrays.asList(idsString.split(","));
     }
 
+    // שמירת סדר העדיפויות של הפעילויות
     public void savePriorityActivityIds(List<Integer> ids) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         StringBuilder sb = new StringBuilder();
@@ -83,6 +95,7 @@ public class PreferenceManager {
         editor.apply();
     }
 
+    // קבלת סדר העדיפויות השמור
     public List<Integer> getPriorityActivityIds() {
         String csv = sharedPreferences.getString("priority_activity_ids", "");
         List<Integer> ids = new ArrayList<>();
@@ -98,6 +111,7 @@ public class PreferenceManager {
     }
 
 
+    // ניקוי כל ההעדפות מהאחסון
     public void clearPreferences() {
         sharedPreferences.edit().clear().apply();
     }

@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.activities;
 
+// מסך הפתיחה שמאפשר בחירה בין מצב רגיל למצב עריכה.
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
+    // אתחול המסך הראשי והגדרת לחצנים למצב עבודה
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);

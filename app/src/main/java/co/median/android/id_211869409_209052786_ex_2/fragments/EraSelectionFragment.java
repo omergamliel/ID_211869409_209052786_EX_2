@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// פרגמנט לבחירת התקופה ההיסטורית הרצויה למסע.
+
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,11 +33,13 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
 
     @Nullable
     @Override
+    // יצירת תצוגת בחירת התקופה
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_era_selection, container, false);
     }
 
     @Override
+    // טעינת הנתונים לאחר יצירת התצוגה
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -53,6 +57,7 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
     }
 
     @Override
+    // פעולה לאחר בחירת תקופה מרשימת התקופות
     public void onEraSelected(Era era) {
         this.selectedEra = era;
 
@@ -69,15 +74,18 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
         nextButton.setEnabled(true);
     }
 
+    // הגדרת רשימת התקופות מהמסד
     private void setupRecyclerView() {
         EraAdapter eraAdapter = new EraAdapter(loadErasFromDB(), this);
         erasRecyclerView.setAdapter(eraAdapter);
     }
 
+    // מאזין לכפתור ההמשך הפותח דיאלוג אישור
     private void setupNextButton() {
         nextButton.setOnClickListener(v -> showConfirmationDialog());
     }
 
+    // קבלת תוצאות מדיאלוג האישור
     private void setupFragmentResultListener() {
         getParentFragmentManager().setFragmentResultListener(
                 ConfirmationDialogFragment.REQUEST_KEY, this, (requestKey, bundle) -> {
@@ -91,6 +99,7 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
                 });
     }
 
+    // שליפת תקופות ממסד הנתונים
     private List<Era> loadErasFromDB() {
         List<Era> list = new ArrayList<>();
         Cursor cursor = dbHelper.getAllEras();
@@ -116,6 +125,7 @@ public class EraSelectionFragment extends Fragment implements EraAdapter.OnEraSe
         return list;
     }
 
+    // הצגת דיאלוג לאישור המסע לפני סיום
     private void showConfirmationDialog() {
         if (selectedEra == null) return;
 

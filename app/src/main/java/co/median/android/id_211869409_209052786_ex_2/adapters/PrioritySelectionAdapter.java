@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.adapters;
 
+// Adapter לבחירת שלוש פעילויות עדיפות מתוך הרשימה.
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,18 +23,21 @@ public class PrioritySelectionAdapter extends RecyclerView.Adapter<PrioritySelec
     private final List<Activity> activities;
     private final List<Activity> selectedActivities = new ArrayList<>();
 
+    // בנאי שמקבל את רשימת הפעילויות שאפשר לתת להן עדיפות
     public PrioritySelectionAdapter(List<Activity> activities) {
         this.activities = activities;
     }
 
     @NonNull
     @Override
+    // יצירת ViewHolder עבור פריטי העדיפות
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_priority_activity, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
+    // הצגת הפעילות והטיפול בסימון
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Activity activity = activities.get(position);
         holder.titleTextView.setText(activity.getTitle());
@@ -59,6 +64,7 @@ public class PrioritySelectionAdapter extends RecyclerView.Adapter<PrioritySelec
         return activities.size();
     }
 
+    // החזרת הפעילויות שנבחרו בסדר עדיפות
     public List<Activity> getSelectedActivities() {
         return selectedActivities;
     }
@@ -67,6 +73,7 @@ public class PrioritySelectionAdapter extends RecyclerView.Adapter<PrioritySelec
         TextView titleTextView;
         CheckBox checkBox;
 
+        // בנאי ViewHolder לאחיזת האלמנטים של הפריט
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.priority_activity_title);

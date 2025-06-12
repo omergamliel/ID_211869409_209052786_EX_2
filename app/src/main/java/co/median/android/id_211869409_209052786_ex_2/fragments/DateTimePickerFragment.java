@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// פרגמנט לבחירת תאריך ושעה למסע של המשתמש.
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -33,11 +35,13 @@ public class DateTimePickerFragment extends Fragment {
 
     @Nullable
     @Override
+    // יצירת תצוגת בחירת התאריך והשעה
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_date_time_picker, container, false);
     }
 
     @Override
+    // לאחר יצירת התצוגה נטענים הערכים השמורים ומוגדרים המאזינים
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -54,6 +58,7 @@ public class DateTimePickerFragment extends Fragment {
         updateNextButtonState();
     }
 
+    // טוען ערכים קיימים מההעדפות ומשקף אותם במסך
     private void loadPreferences() {
         selectedDate = preferenceManager.getSelectedDate();
         if (selectedDate != null && !selectedDate.isEmpty()) {
@@ -66,6 +71,7 @@ public class DateTimePickerFragment extends Fragment {
         }
     }
 
+    // הגדרת פעולות ללחצני בחירת תאריך ושעה והמשך
     private void setupClickListeners() {
         selectDateButton.setOnClickListener(v -> openDatePicker());
         selectTimeButton.setOnClickListener(v -> openTimePicker());
@@ -78,6 +84,7 @@ public class DateTimePickerFragment extends Fragment {
 
     }
 
+    // פתיחת דיאלוג לבחירת תאריך
     private void openDatePicker() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -94,6 +101,7 @@ public class DateTimePickerFragment extends Fragment {
         datePickerDialog.show();
     }
 
+    // פתיחת דיאלוג לבחירת שעה
     private void openTimePicker() {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -109,6 +117,7 @@ public class DateTimePickerFragment extends Fragment {
         timePickerDialog.show();
     }
 
+    // הפעלת כפתור ההמשך רק כאשר קיימים תאריך ושעה
     private void updateNextButtonState() {
         boolean isEnabled = selectedDate != null && !selectedDate.isEmpty() &&
                 selectedTime != null && !selectedTime.isEmpty();

@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// פרגמנט לבחירת פעילויות היסטוריות על ידי המשתמש.
+
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,11 +36,13 @@ public class ActivitiesSelectionFragment extends Fragment {
 
     @Nullable
     @Override
+    // יצירת תצוגת בחירת הפעילויות
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_activities_selection, container, false);
     }
 
     @Override
+    // לאחר יצירת התצוגה נטענות פעילויות ומוגדר לחצן ההמשך
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -52,6 +56,7 @@ public class ActivitiesSelectionFragment extends Fragment {
         setupNextButton();
     }
 
+    // הגדרת רשימת הפעילויות למסך
     private void setupRecyclerView() {
         List<Activity> realActivities = loadActivitiesFromDB();
         activitiesAdapter = new ActivitiesAdapter(realActivities);
@@ -59,6 +64,7 @@ public class ActivitiesSelectionFragment extends Fragment {
         activitiesRecyclerView.setAdapter(activitiesAdapter);
     }
 
+    // שליפת כל הפעילויות ממסד הנתונים
     private List<Activity> loadActivitiesFromDB() {
         List<Activity> list = new ArrayList<>();
         Cursor cursor = dbHelper.getAllActivities();
@@ -81,6 +87,7 @@ public class ActivitiesSelectionFragment extends Fragment {
         return list;
     }
 
+    // טיפול בלחיצה על כפתור ההמשך ובהצגת דיאלוג העדיפויות
     private void setupNextButton() {
         nextButton.setOnClickListener(v -> {
             List<Activity> selected = activitiesAdapter.getSelectedActivities();

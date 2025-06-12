@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// דיאלוג להוספה או עריכה של פעילות היסטורית במסד הנתונים.
+
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ public class ManageActivityDialogFragment extends DialogFragment {
     private OnSaveListener listener;
     private DatabaseHelper dbHelper;
 
+    // יצירת מופע חדש של הדיאלוג עם אובייקט פעילות (אם קיים)
     public static ManageActivityDialogFragment newInstance(@Nullable Activity activity) {
         ManageActivityDialogFragment fragment = new ManageActivityDialogFragment();
         Bundle args = new Bundle();
@@ -42,12 +45,14 @@ public class ManageActivityDialogFragment extends DialogFragment {
         return fragment;
     }
 
+    // הגדרת מאזין לשמירה כדי לרענן את הרשימה במסך הקודם
     public void setOnSaveListener(OnSaveListener listener) {
         this.listener = listener;
     }
 
     @NonNull
     @Override
+    // בניית הדיאלוג להצגת הטופס ולשמירת הנתונים
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_manage_activity, null);
         EditText titleInput = view.findViewById(R.id.input_title);

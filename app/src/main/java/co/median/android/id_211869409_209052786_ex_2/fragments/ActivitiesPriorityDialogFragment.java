@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// דיאלוג המאפשר לבחור שלוש פעילויות מועדפות מבין הבחירות.
+
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +30,7 @@ public class ActivitiesPriorityDialogFragment extends DialogFragment {
 
     private PrioritySelectionAdapter adapter;
 
+    // יצירת דיאלוג עם רשימת הפעילויות שנבחרו
     public static ActivitiesPriorityDialogFragment newInstance(ArrayList<Activity> selectedActivities) {
         ActivitiesPriorityDialogFragment fragment = new ActivitiesPriorityDialogFragment();
         Bundle args = new Bundle();
@@ -38,6 +41,7 @@ public class ActivitiesPriorityDialogFragment extends DialogFragment {
 
     @NonNull
     @Override
+    // בניית הדיאלוג לבחירת שלוש פעילויות בעדיפות גבוהה
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_activities_priority, null);
         RecyclerView recyclerView = view.findViewById(R.id.priority_recycler_view);

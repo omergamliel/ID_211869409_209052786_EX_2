@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.adapters;
 
+// Adapter המציג את רשימת הפעילויות לבחירה במסך.
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +19,21 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
     private final List<Activity> activityList;
     private final List<Activity> selectedActivities = new ArrayList<>();
 
+    // בנאי שמקבל את רשימת הפעילויות להצגה
     public ActivitiesAdapter(List<Activity> activityList) {
         this.activityList = activityList;
     }
 
     @NonNull
     @Override
+    // יצירת ViewHolder לפריטי הרשימה
     public ActivityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_activity, parent, false);
         return new ActivityViewHolder(view);
     }
 
     @Override
+    // קשירת הנתונים לתצוגה
     public void onBindViewHolder(@NonNull ActivityViewHolder holder, int position) {
         Activity currentActivity = activityList.get(position);
         holder.bind(currentActivity);
@@ -39,6 +44,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
         return activityList.size();
     }
 
+    // החזרת רשימת הפעילויות שסומנו
     public List<Activity> getSelectedActivities() {
         return selectedActivities;
     }
@@ -49,6 +55,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
         private final TextView dateTextView;
         private final CheckBox checkBox;
 
+        // בנאי ViewHolder שמאתחל את רכיבי התצוגה
         public ActivityViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.activity_title_textview);
@@ -57,6 +64,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
             checkBox = itemView.findViewById(R.id.activity_checkbox);
         }
 
+        // קישור נתוני הפעילות לאלמנטים ברשימה
         void bind(final Activity activity) {
             titleTextView.setText(activity.getTitle());
             descriptionTextView.setText(activity.getDescription());

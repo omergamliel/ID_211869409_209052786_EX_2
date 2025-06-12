@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// פרגמנט לניהול רשימת הפעילויות במסד הנתונים.
+
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,11 +33,13 @@ public class ActivitiesManageFragment extends Fragment implements ManageActiviti
 
     @Nullable
     @Override
+    // יצירת ממשק ניהול הפעילויות
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_activities_manage, container, false);
     }
 
     @Override
+    // אתחול הרשימה והכפתורים לאחר יצירת הממשק
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dbHelper = new DatabaseHelper(requireContext());
@@ -49,6 +53,7 @@ public class ActivitiesManageFragment extends Fragment implements ManageActiviti
         addButton.setOnClickListener(v -> openDialog(null));
     }
 
+    // טוען את הפעילויות הקיימות מהמסד
     private List<Activity> loadActivities() {
         List<Activity> list = new ArrayList<>();
         Cursor cursor = dbHelper.getAllActivities();
@@ -70,11 +75,13 @@ public class ActivitiesManageFragment extends Fragment implements ManageActiviti
         return list;
     }
 
+    // רענון הרשימה לאחר שינוי
     private void refresh() {
         adapter = new ManageActivitiesAdapter(loadActivities(), this);
         recyclerView.setAdapter(adapter);
     }
 
+    // פתיחת דיאלוג להוספה או עדכון של פעילות
     private void openDialog(@Nullable Activity activity) {
         ManageActivityDialogFragment dialog = ManageActivityDialogFragment.newInstance(activity);
         dialog.setOnSaveListener(this::refresh);
@@ -82,11 +89,13 @@ public class ActivitiesManageFragment extends Fragment implements ManageActiviti
     }
 
     @Override
+    // אירוע עריכת פעילות קיימת
     public void onEdit(Activity activity) {
         openDialog(activity);
     }
 
     @Override
+    // אירוע מחיקת פעילות קיימת
     public void onDelete(Activity activity) {
         dbHelper.deleteActivity(activity.getId());
         refresh();
