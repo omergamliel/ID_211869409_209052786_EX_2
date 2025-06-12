@@ -78,7 +78,7 @@ public class SummaryFragment extends Fragment {
 
         Travel travel = ((NormalModeActivity) getActivity()).getCurrentTravel();
 
-        
+        //לקיחת זמן ותאריך מהshared preferences
         travel.setSelectedDate(preferenceManager.getSelectedDate());
         travel.setSelectedTime(preferenceManager.getSelectedTime());
 
@@ -97,6 +97,7 @@ public class SummaryFragment extends Fragment {
         eraTextView.setText("תקופה: " + travel.getSelectedEra());
 
         activitiesContainer.removeAllViews();
+        //איסוף של כל הפעילויות ההיסטוריות
         StringJoiner activitiesJoiner = new StringJoiner(", ");
         for (Activity act : travel.getSelectedActivities()) {
             TextView activityView = new TextView(requireContext());

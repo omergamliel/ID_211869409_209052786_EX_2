@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Students Name: Omer Gamliel | ID: 209052786 -->
+<!--Students Name: Batel Gofleyzer | ID: 211869409-->
+<!-- contains 2 buttons: reg mode and edit mode -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"

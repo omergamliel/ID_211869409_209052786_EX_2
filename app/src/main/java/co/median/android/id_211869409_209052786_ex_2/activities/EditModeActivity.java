@@ -24,7 +24,7 @@ public class EditModeActivity extends AppCompatActivity {
     private Button editModeButton;   
 
     @Override
-    // אתחול מצב העריכה והצגת הפרגמנטים המתאימים
+    // אתחול מצב העריכה והצגת הפרגמנטים המתאימים בהתאם לכפתור שנלחץ
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_mode);

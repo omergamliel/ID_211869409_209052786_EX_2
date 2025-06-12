@@ -48,8 +48,10 @@ public class SummriesManageFragment extends Fragment {
         summariesContainer = view.findViewById(R.id.summaries_container); 
         deleteButton = view.findViewById(R.id.delete_summries_button);
 
-        loadSummaries();
+        //העלאת כל סיכומי המסע
 
+        loadSummaries();
+        //מחיקת כל הסיכומים
         deleteButton.setOnClickListener(v -> {
             dbHelper.deleteAllSummaries();
             Toast.makeText(requireContext(), "מחיקת כל הסיכומים בוצעה", Toast.LENGTH_SHORT).show();
@@ -74,12 +76,13 @@ public class SummriesManageFragment extends Fragment {
             TextView summaryView = new TextView(requireContext());
             summaryView.setTextSize(16);
             summaryView.setPadding(8, 8, 8, 8);
-
+//יצירת סיכום
             StringBuilder sb = new StringBuilder();
             sb.append("תאריך: ").append(travel.getSelectedDate()).append("\n");
             sb.append("שעה: ").append(travel.getSelectedTime()).append("\n");
             sb.append("תקופה: ").append(travel.getSelectedEra()).append("\n");
             sb.append("פעילויות: ");
+            //הוספת פעילויות היסטוריות
             if (travel.getSelectedActivities() != null && !travel.getSelectedActivities().isEmpty()) {
                 for (co.median.android.id_211869409_209052786_ex_2.models.Activity act : travel.getSelectedActivities()) {
                     sb.append(act.getTitle()).append(", ");
@@ -88,7 +91,7 @@ public class SummriesManageFragment extends Fragment {
             } else {
                 sb.append("אין");
             }
-
+//שפיכה של התוצאות לtextview והוספה של הview
             summaryView.setText(sb.toString());
             summariesContainer.addView(summaryView);
         }

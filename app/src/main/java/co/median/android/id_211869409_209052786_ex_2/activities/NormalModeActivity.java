@@ -4,7 +4,7 @@
 
 package co.median.android.id_211869409_209052786_ex_2.activities;
 
-// פעילות המנהלת את זרימת המסע במצב הרגיל של האפליקציה.
+// פעילות המנהלת את זרימת המסע במצב הרגיל של האפליקציה-הוספת מסע חדש.
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +22,7 @@ import co.median.android.id_211869409_209052786_ex_2.models.Travel;
 
 public class NormalModeActivity extends AppCompatActivity {
 
+//איתחול מסע ריק-אליו נכניס את כל הפרטים שנאסוף מהפרגמנטים
     private Travel currentTravel = new Travel("", "", "", new ArrayList<>());
 
     @Override
@@ -29,7 +30,7 @@ public class NormalModeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normal_mode);
-
+//הצגת הפרגמנט של התאריך והשעה כפרגמנט הראשון
         if (savedInstanceState == null) {
             replaceFragment(new DateTimePickerFragment(), false);
         }

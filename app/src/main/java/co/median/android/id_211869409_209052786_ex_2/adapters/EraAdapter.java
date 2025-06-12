@@ -68,7 +68,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder> {
             cardView = (CardView) itemView;
         }
 
-        // הצגת תקופה וטיפול בבחירה
+        //  הצגת תקופה וטיפול בבחירה וסימונה
         void bind(final Era era, final int position) {
             eraNameTextView.setText(era.getName());
             eraImageView.setImageResource(era.getImageResId());

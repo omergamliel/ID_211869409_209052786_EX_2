@@ -41,7 +41,7 @@ public class PrioritySelectionAdapter extends RecyclerView.Adapter<PrioritySelec
     }
 
     @Override
-    // הצגת הפעילות והטיפול בסימון
+    // הצגת הפעילות והטיפול בסימון של יותר מ3 בבחירת 3 מועדפים
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Activity activity = activities.get(position);
         holder.titleTextView.setText(activity.getTitle());

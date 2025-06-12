@@ -68,7 +68,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
             checkBox = itemView.findViewById(R.id.activity_checkbox);
         }
 
-        // קישור נתוני הפעילות לאלמנטים ברשימה
+        //  קישור נתוני הפעילות לאלמנטים ברשימה והוספה או הורדה בהתאם לסימון הצ'ק בוקס
         void bind(final Activity activity) {
             titleTextView.setText(activity.getTitle());
             descriptionTextView.setText(activity.getDescription());

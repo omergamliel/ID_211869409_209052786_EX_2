@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    // אתחול המסך הראשי והגדרת לחצנים למצב עבודה
+    // אתחול המסך הראשי והגדרת כפתורים ומעברים בהתאם לכפתור שנלחץ
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
