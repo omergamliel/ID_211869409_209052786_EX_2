@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// פרגמנט המציג סיכום של המסע שנבחר ומאפשר שיתוף או איפוס.
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,11 +40,13 @@ public class SummaryFragment extends Fragment {
 
     @Nullable
     @Override
+    // יצירת ממשק הפרגמנט
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_summary, container, false);
     }
 
     @Override
+    // לאחר יצירת הממשק נטען נתונים ומגדירים לחצנים
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -54,6 +58,7 @@ public class SummaryFragment extends Fragment {
         setupButtons();
     }
 
+    // אתחול רכיבי התצוגה במסך
     private void initializeViews(View view) {
         dateTextView = view.findViewById(R.id.summary_date_textview);
         timeTextView = view.findViewById(R.id.summary_time_textview);
@@ -63,6 +68,7 @@ public class SummaryFragment extends Fragment {
         resetButton = view.findViewById(R.id.reset_button);
     }
 
+    // הצגת הסיכום ושמירתו במסד הנתונים
     private void displaySummaryAndSave() {
         if (!(getActivity() instanceof NormalModeActivity)) return;
 
@@ -107,11 +113,13 @@ public class SummaryFragment extends Fragment {
         prepareShareText(travel, activitiesJoiner.toString());
     }
 
+    // הגדרת פעולות הכפתורים
     private void setupButtons() {
         shareButton.setOnClickListener(v -> shareSummary());
         resetButton.setOnClickListener(v -> resetJourney());
     }
 
+    // שיתוף הסיכום באמצעות Intent
     private void shareSummary() {
         if (summaryTextForShare == null || summaryTextForShare.isEmpty()) {
             Toast.makeText(getContext(), "אין מידע לשיתוף", Toast.LENGTH_SHORT).show();
@@ -126,6 +134,7 @@ public class SummaryFragment extends Fragment {
         startActivity(shareIntent);
     }
 
+    // איפוס כל הבחירות וחזרה למסך הראשי
     private void resetJourney() {
         preferenceManager.clearPreferences();
         Intent intent = new Intent(getActivity(), MainActivity.class);
@@ -136,6 +145,7 @@ public class SummaryFragment extends Fragment {
         }
     }
 
+    // הכנת הטקסט לשיתוף המסע
     private void prepareShareText(Travel travel, String activityIds) {
         summaryTextForShare = "יומן המסע שלי בזמן:\n" +
                 "תאריך: " + travel.getSelectedDate() + "\n" +

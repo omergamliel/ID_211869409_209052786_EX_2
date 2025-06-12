@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// דיאלוג המאשר את פרטי המסע לפני היציאה אליו.
+
 import android.app.Dialog;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ public class ConfirmationDialogFragment extends DialogFragment {
 
     private static final String ARG_SUMMARY_MESSAGE = "summaryMessage";
 
+    // יצירת מופע חדש של הדיאלוג עם טקסט הסיכום
     public static ConfirmationDialogFragment newInstance(String summaryMessage) {
         ConfirmationDialogFragment fragment = new ConfirmationDialogFragment();
         Bundle args = new Bundle();
@@ -24,6 +27,7 @@ public class ConfirmationDialogFragment extends DialogFragment {
 
     @NonNull
     @Override
+    // בניית הדיאלוג והחזרת תוצאת המשתמש
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         String summaryMessage = "";
         if (getArguments() != null) {

@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.fragments;
 
+// פרגמנט לניהול והצגת סיכומי מסע קיימים.
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,11 +29,13 @@ public class SummriesManageFragment extends Fragment {
 
     @Nullable
     @Override
+    // יצירת תצוגת ניהול הסיכומים
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_summrie_manage, container, false); 
+        return inflater.inflate(R.layout.fragment_summrie_manage, container, false);
     }
 
     @Override
+    // לאחר יצירת התצוגה נטענים הסיכומים ומוגדר כפתור המחיקה
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -49,6 +53,7 @@ public class SummriesManageFragment extends Fragment {
         });
     }
 
+    // טעינת הסיכומים מהמסד והצגתם
     private void loadSummaries() {
         summariesContainer.removeAllViews();
         List<Travel> travels = dbHelper.getAllSummaries();

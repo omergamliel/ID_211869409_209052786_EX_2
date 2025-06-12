@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.activities;
 
+// פעילות המאפשרת ניהול של פעילויות וסיכומי מסע במצב עריכה.
+
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -18,6 +20,7 @@ public class EditModeActivity extends AppCompatActivity {
     private Button editModeButton;   
 
     @Override
+    // אתחול מצב העריכה והצגת הפרגמנטים המתאימים
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_mode);
@@ -36,6 +39,7 @@ public class EditModeActivity extends AppCompatActivity {
         }
     }
 
+    // החלפת הפרגמנט המוצג במסך העריכה
     private void replaceFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);

@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.adapters;
 
+// Adapter להצגת פעילויות במצב עריכה עם אפשרויות עדכון ומחיקה.
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ public class ManageActivitiesAdapter extends RecyclerView.Adapter<ManageActiviti
     private final List<Activity> activities;
     private final OnActivityActionListener listener;
 
+    // בנאי שמקבל רשימת פעילויות ומאזין לפעולות
     public ManageActivitiesAdapter(List<Activity> activities, OnActivityActionListener listener) {
         this.activities = activities;
         this.listener = listener;
@@ -32,6 +35,7 @@ public class ManageActivitiesAdapter extends RecyclerView.Adapter<ManageActiviti
 
     @NonNull
     @Override
+    // יצירת ViewHolder עבור רשימת הניהול
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_activity_list, parent, false);
@@ -39,6 +43,7 @@ public class ManageActivitiesAdapter extends RecyclerView.Adapter<ManageActiviti
     }
 
     @Override
+    // קישור פרטי הפעילות לתצוגה
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(activities.get(position));
     }
@@ -55,6 +60,7 @@ public class ManageActivitiesAdapter extends RecyclerView.Adapter<ManageActiviti
         Button updateButton;
         Button deleteButton;
 
+        // בנאי ViewHolder המאתחל את הרכיבים
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.activity_title_textview);
@@ -64,6 +70,7 @@ public class ManageActivitiesAdapter extends RecyclerView.Adapter<ManageActiviti
             updateButton = itemView.findViewById(R.id.update_activity_button);
         }
 
+        // הצגת נתוני הפעילות והאזנה לכפתורים
         void bind(Activity activity) {
             titleTextView.setText(activity.getTitle());
             descriptionTextView.setText(activity.getDescription());

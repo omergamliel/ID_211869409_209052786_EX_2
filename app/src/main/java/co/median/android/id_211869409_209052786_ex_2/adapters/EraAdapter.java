@@ -1,5 +1,7 @@
 package co.median.android.id_211869409_209052786_ex_2.adapters;
 
+// Adapter המציג את תקופות הזמן ברשימה לבחירת המשתמש.
+
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder> {
     private final OnEraSelectedListener listener;
     private int selectedPosition = -1;
 
+    // בנאי שמקבל את רשימת התקופות ומאזין לבחירה
     public EraAdapter(List<Era> eraList, OnEraSelectedListener listener) {
         this.eraList = eraList;
         this.listener = listener;
@@ -30,12 +33,14 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder> {
 
     @NonNull
     @Override
+    // יצירת ViewHolder של תקופה
     public EraViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_era, parent, false);
         return new EraViewHolder(view);
     }
 
     @Override
+    // קישור נתוני התקופה לתצוגה
     public void onBindViewHolder(@NonNull EraViewHolder holder, int position) {
         Era currentEra = eraList.get(position);
         holder.bind(currentEra, position);
@@ -51,6 +56,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder> {
         private final TextView eraNameTextView;
         private final CardView cardView;
 
+        // בנאי ViewHolder המאתחל את רכיבי הפריט
         public EraViewHolder(@NonNull View itemView) {
             super(itemView);
             eraImageView = itemView.findViewById(R.id.era_imageview);
@@ -58,6 +64,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder> {
             cardView = (CardView) itemView;
         }
 
+        // הצגת תקופה וטיפול בבחירה
         void bind(final Era era, final int position) {
             eraNameTextView.setText(era.getName());
             eraImageView.setImageResource(era.getImageResId());
